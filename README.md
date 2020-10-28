@@ -1,4 +1,4 @@
-# docrepo-hugo-theme
+# docminer-hugo-theme
 
 ## Project Status
 
