@@ -10,6 +10,11 @@
 {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
 {{ end }}
 <li{{ if eq .p1 .p2 }} class="is-active"{{ end }}>
-  <a href="{{ .p1.Permalink }}" aria-current="page">{{ .p1.Title }}</a>
+  <a href="{{ .p1.Permalink }}" aria-current="page">
+    <span class="icon is-small">
+      <i class="fas {{ if .p1.IsHome }}fa-home{{ else }}{{if eq .p1 .p2 }}fa-book{{ else }}fa-folder-open{{ end }}{{ end }}" aria-hidden="true"></i>
+    </span>
+    <span>{{ .p1.Title }}</span>
+  </a>
 </li>
 {{ end }}
