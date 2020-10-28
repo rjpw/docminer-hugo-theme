@@ -1,4 +1,4 @@
-# docrepo-hugo-theme
+# docminer-hugo-theme
 
 Hugo theme for a document repository.
 
