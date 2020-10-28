@@ -1,8 +1,10 @@
+<div class="box">
 <nav class="breadcrumb" aria-label="breadcrumbs">
   <ul>
   {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
   </ul>
 </nav>
+</div>
 {{ define "breadcrumbnav" }}
 {{ if .p1.Parent }}
 {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
