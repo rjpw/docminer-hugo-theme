@@ -21,9 +21,11 @@ Inspiration for the next iterations will come from the following Hugo themes:
 * [Docsy](https://themes.gohugo.io/docsy/)
 * [Book](https://github.com/alex-shpak/hugo-book)
 * [Cloudflare docs](https://github.com/cloudflare/hugo-cloudflare-docs)
+* [Sphinx Bulma Theme](https://github.com/gabrielfalcao/sphinx-bulma-theme)
 
 ## Roadmap
 
 * Collapsing vertical menu
 * Searchability with Algolia
+* Edit this page (if logged in)
 * Data-driven content (see [Hugo docs](https://gohugo.io/templates/data-templates/#data-driven-content))
