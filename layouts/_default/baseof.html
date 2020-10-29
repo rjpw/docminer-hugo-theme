@@ -8,7 +8,19 @@
         {{- partial "header.html" . -}}
         {{- end }}
         <main>
-        {{- block "main" . }}{{- end }}
+        {{- block "main" . }}
+        <div class="container">
+            <div class="columns">
+                <div class="column is-3 ">
+                    {{- partial "menu" . }}
+                </div>
+                <div class="column is-9">
+                    {{- partial "widgets/breadcrumb" . }}
+                    {{- partial "content" . }}
+                </div>
+            </div>
+        </div>
+        {{- end }}
         </main>
         {{- block "footer" . }}
         {{- partial "footer.html" . -}}
