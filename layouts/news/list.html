@@ -3,9 +3,11 @@
 
     <div class="container">
         <div class="columns">
-            <div class="column is-3">
-            {{ partial "menu" }}
+            <div id="sidebar" class="column is-3 is-fullheight">
+            {{ partial "menu" . }}
             </div>
+            <!-- <div class="box">
+            </div> -->
             <div class="column is-9">
                 <div class="container">
                     {{ partial "widgets/breadcrumb" . }}
