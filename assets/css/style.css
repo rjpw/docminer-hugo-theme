@@ -32,3 +32,11 @@ main {
   display: table;
   padding: 0.1em;
 }
+
+.menu {
+  background-color: grey-light;
+}
+
+#sidebar {
+  background-color: rgb(221, 221, 221);
+}
