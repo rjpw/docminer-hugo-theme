@@ -29,3 +29,12 @@ Inspiration for the next iterations will come from the following Hugo themes:
 * Searchability with Algolia
 * Edit this page (if logged in)
 * Data-driven content (see [Hugo docs](https://gohugo.io/templates/data-templates/#data-driven-content))
+
+## Collapsing Menu
+
+This feature is using Buefy, and so it requires a webpack build. Before including the DocMiner theme in a project, navigate to the root of this theme and run
+
+```bash
+npm install
+npm run build
+```
