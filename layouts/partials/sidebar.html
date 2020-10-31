@@ -3,7 +3,7 @@
 </noscript>
 
 <div id="app">
-  <Sidebar/>
+  <!-- <Sidebar/> -->
 </div>
 
 <!-- {{ $externals := slice "react" "react-dom" }} -->
@@ -14,11 +14,11 @@
 <!-- {{ $opts := dict "targetPath" "main.js" "externals" $externals "defines" $defines }} -->
 <!-- {{ $built := resources.Get "vue/main.js" | js.Build $opts }} -->
 
-{{ $built := resources.Get "vue/main.js" | js.Build "main.js" }}
+<!-- {{ $built := resources.Get "vue/main.js" | js.Build "main.js" }}
 
 {{ with $built.Content }}
   <script>
   {{ . | safeJS }}
   </script>
 {{ end }}
-
+ -->
