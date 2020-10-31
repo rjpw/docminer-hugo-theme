@@ -1,0 +1,24 @@
+<noscript>
+  <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+
+<div id="app">
+  <Sidebar/>
+</div>
+
+<!-- {{ $externals := slice "react" "react-dom" }} -->
+<!-- {{ $externals := slice "vue" }} -->
+<!-- {{ $built := resources.Get "vue/main.js" | js.Build "main.js" | minify | fingerprint }} -->
+
+<!-- {{ $defines := dict "process.env.NODE_ENV" `"development"` }} -->
+<!-- {{ $opts := dict "targetPath" "main.js" "externals" $externals "defines" $defines }} -->
+<!-- {{ $built := resources.Get "vue/main.js" | js.Build $opts }} -->
+
+{{ $built := resources.Get "vue/main.js" | js.Build "main.js" }}
+
+{{ with $built.Content }}
+  <script>
+  {{ . | safeJS }}
+  </script>
+{{ end }}
+
