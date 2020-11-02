@@ -32,7 +32,7 @@ Inspiration for the next iterations will come from the following Hugo themes:
 
 ## Collapsing Menu
 
-This feature is using Buefy, and so it requires a webpack build. Before including the DocMiner theme in a project, navigate to the root of this theme and run
+This feature is using Buefy, and so it requires a webpack build. Should you requre significant changes to the more advanced features (e.g. the collapsing menu), navigate to the root of this theme and run:
 
 ```bash
 npm install
