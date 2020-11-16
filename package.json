@@ -4,22 +4,12 @@
   "description": "Hugo theme for linked documents",
   "main": "webpack.config.js",
   "browserslist": "> 1%",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "bulma": "^0.9.1",
-    "css-loader": "^5.0.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "mini-css-extract-plugin": "^1.2.1",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^10.0.5",
-    "style-loader": "^2.0.0",
-    "webpack-cli": "^4.1.0",
-    "webpack": "^5.3.2"
+    "bulma": "^0.9.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
