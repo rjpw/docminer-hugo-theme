@@ -1,6 +1,7 @@
 {{ define "main" }}
-<div class="container">
-  <div class="columns">
+<div class="section">
+  <div class="container">
+    <div class="columns">
       <div id="sidebar" class="column is-3 is-fullheight">
         {{- partial "menu" . }}
       </div>
@@ -8,6 +9,7 @@
         {{- partial "widgets/breadcrumb" . }}
         {{- partial "contents" . }}
       </div>
+    </div>
   </div>
 </div>
 {{ end }}

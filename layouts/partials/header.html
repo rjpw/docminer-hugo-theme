@@ -1,45 +1,48 @@
 <header>
-    <nav class="navbar is-white" role="navigation">
-        <div class="container">
-            <div class="navbar-brand">
-                <a class="navbar-item brand-text" href="/" title="home">
-                    <span class="logo"><h1>{{ .Site.Title }}</h1></span>
-                </a>
-                {{ range .Site.Menus.social }}
-                <a href="{{ .URL }}" class="navbar-item is-hidden-desktop" title="{{ .Name }}"><span
-                        class="icon">{{ .Pre }}</span></a>
-                {{ end }}
-                <div class="navbar-burger burger" data-target="navMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div id="navMenu" class="navbar-menu">
-                <div class="navbar-start">
-                    {{ $current := . }}
-                    {{ range .Site.Menus.main }}
-                    {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
-                    {{ $active = or $active (eq .Name $current.Title) }}
-                    {{ $active = or $active (and (eq .Name "News") (eq $current.Section "news")) }}
-                    <a href="{{ .URL }}" class="navbar-item {{ if $active }}is-active{{ end }} ">{{ .Name }}</a>
-                    {{ end }}
-                </div>
-                <div class="navbar-end">
-                    {{ range .Site.Menus.social }}
-                    <a href="{{ .URL }}" class="navbar-item is-hidden-touch" title="{{ .Name }}"><span
-                            class="icon">{{ .Pre }}</span></a>
-                    {{ end }}
-                </div>
-            </div>
+  <nav class="navbar is-white" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item brand-text" href="/" title="home">
+            <span class="logo"><h1>{{ .Site.Title }}</h1></span>
+        </a>
+        {{ range .Site.Menus.social }}
+        <a href="{{ .URL }}" class="navbar-item is-hidden-desktop" title="{{ .Name }}"><span
+          class="icon">{{ .Pre }}</span></a>
+        {{ end }}
+        <div class="navbar-burger burger" data-target="navMenu">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    </nav>
-    <script>
-        $(document).ready(function () {
-            $(".navbar-burger").click(function () {
-                $(".navbar-burger").toggleClass("is-active");
-                $(".navbar-menu").toggleClass("is-active");
-            })
-        })
-    </script>
+      </div>
+      <div id="navMenu" class="navbar-menu">
+        <div class="navbar-start">
+          {{ $current := . }}
+          {{ range .Site.Menus.main }}
+          {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+          {{ $active = or $active (eq .Name $current.Title) }}
+          {{ $active = or $active (and (eq .Name "News") (eq $current.Section "news")) }}
+          <a href="{{ .URL }}" class="navbar-item {{ if $active }}is-active{{ end }} ">{{ .Name }}</a>
+          {{ end }}
+        </div>
+        <div class="navbar-end">
+          {{ range .Site.Menus.social }}
+          <a href="{{ .URL }}" class="navbar-item is-hidden-touch" title="{{ .Name }}"><span
+                  class="icon">{{ .Pre }}</span></a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </nav>
+  {{ $bttop := resources.Get "js/vanilla-back-to-top.min.js" }}
+  <script type="text/javascript" src="{{ $bttop.RelPermalink }}" defer></script>
+  <script>
+    $(document).ready(function () {
+      $(".navbar-burger").click(function () {
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+      });
+      addBackToTop();
+    })
+  </script>
 </header>
