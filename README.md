@@ -23,6 +23,12 @@ Inspiration for the next iterations will come from the following Hugo themes:
 * [Cloudflare docs](https://github.com/cloudflare/hugo-cloudflare-docs)
 * [Sphinx Bulma Theme](https://github.com/gabrielfalcao/sphinx-bulma-theme)
 
+## Imports
+
+This theme makes use of the following embedded scripts:
+
+* [vanilla-back-to-top (v7.2.1)](https://github.com/vfeskov/vanilla-back-to-top)
+
 ## Roadmap
 
 * Collapsing vertical menu
