@@ -1,47 +1,17 @@
 <!-- sidebar start -->
-<!-- <div class="box"> -->
 <aside class="book-menu">
   <nav>
     {{ $currentPage := . }}
 
-  {{ range $key, $value := $.Site.Menus }}
-    {{ $currentMenu := $key }}
-
-    {{ if hasPrefix $key "side-" }}
-
-      <p class="menu-label">{{ substr $key 5 }}</p>
-      <ul class="accordion menu-list">
-      {{ range $value }}
-        <li>
-          <a href="{{ .ConfiguredURL }}" class="navbar-item has-submenu">
-            <div class="level is-mobile {{ if $currentPage.HasMenuCurrent $currentMenu . }}is-active{{ end }}">
-              <div class="level-left"><span class="level-item">{{ .Name }}</span></div>
-              <span class="is-pulled-right"><i class="{{ .Pre }}"></i></span>
-            </div>
-          </a>
-        </li>
-        <ul class="sub-menu">
-          {{ range .Children }}
-            <li>
-              <a href="{{ .ConfiguredURL }}" class="navbar-item">
-                <div class="level is-mobile {{ if $currentPage.HasMenuCurrent $currentMenu . }}is-active{{ end }}">
-                  <div class="level-left"><span class="level-item">{{ .Name }}</span></div>
-                  <span class="is-pulled-right"><i class="{{ .Pre }}"></i></span>
-                </div>
-              </a>
-            </li>
-          {{ end }}
-        </ul>
+    {{ range $key, $value := $.Site.Menus }}
+      {{ $currentMenu := $key }}
+      {{ if hasPrefix $key "side-" }}
+        {{ partial "menu-filetree" $ }}
       {{ end }}
-    </ul>
     {{ end }}
-  {{ end }}
 
-  {{ partial "menu-filetree" . }}
-
-</nav>
+  </nav>
 </aside>
-<!-- </div> -->
 {{ $script := resources.Get "js/menu-reset.js" | resources.Minify }}
 {{ with $script.Content }}
   <script>{{ . | safeJS }}</script>
