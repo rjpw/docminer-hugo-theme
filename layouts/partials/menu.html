@@ -10,7 +10,7 @@
     {{ if hasPrefix $key "side-" }}
 
       <p class="menu-label">{{ substr $key 5 }}</p>
-      <ul class="menu-list">
+      <ul class="accordion menu-list">
       {{ range $value }}
         <li>
           <a href="{{ .ConfiguredURL }}" class="navbar-item has-submenu">

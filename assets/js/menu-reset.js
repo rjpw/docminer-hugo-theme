@@ -1,6 +1,6 @@
 (function() {
 
-  var menu = document.querySelector("aside.book-menu nav");
+  var menu = document.querySelector("#sidebar");
   
   if (menu) {
     addEventListener("beforeunload", function(event) {

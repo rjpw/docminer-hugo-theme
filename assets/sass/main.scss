@@ -36,10 +36,61 @@ main {
   padding: 0.1em;
 }
 
-.menu {
-  background-color: grey-light;
+/* 
+  Menu styles for accordion.
+  Credit: https://codepen.io/mrrudrud/pen/BOvrQO
+*/
+.submenu {
+  max-height: 0;
+  overflow:hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-list li ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.menu-list a.is-active {
+    background-color: $primary;
+    color: #fff;
+}
+
+.accordion {
+
+  list-style: none;
+  padding: 0;
+
+  .inner {
+    padding-left: 1em;
+    overflow: hidden;
+    display: none;
+  
+    &.show {
+      /*display: block;*/
+    }
+  }
+
+  li {
+    margin: .5em 0;
+  
+    a.toggle {
+      width: 100%;
+      display: block;
+      // background: rgba(0,0,0,0.78);
+      // color: #fefefe;
+      padding: .75em;
+      border-radius: 0.15em;
+      transition: background .3s ease;
+    
+      &:hover {
+        // background: rgba(0, 0, 0, 0.9);
+      }
+    }
+  }
 }
 
 #sidebar {
-  background-color: rgb(221, 221, 221);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

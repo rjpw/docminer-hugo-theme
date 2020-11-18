@@ -35,7 +35,9 @@
     </div>
   </nav>
   {{ $bttop := resources.Get "js/vanilla-back-to-top.min.js" }}
-  <script type="text/javascript" src="{{ $bttop.RelPermalink }}" defer></script>
+  {{ $accordion := resources.Get "js/menu-toggle.js" }}
+  {{ $js := slice $bttop $accordion | resources.Concat "js/bundle.js" }}
+  <script type="text/javascript" src="{{ $js.RelPermalink }}" defer></script>
   <script>
     $(document).ready(function () {
       $(".navbar-burger").click(function () {
