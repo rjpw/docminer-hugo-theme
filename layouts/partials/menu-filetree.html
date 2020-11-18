@@ -36,16 +36,16 @@
 
   {{ if .Page.Params.bookCollapseSection }}
     <label for="section-{{ md5 .Page }}" class="flex justify-between">
-    <a {{ if .Page.Content }}href="{{ .Page.Permalink }}"{{ end }} class="toggle {{ if $current }}is-active{{ end }}">
+    <a {{ if .Page.Content }}href="{{ .Page.Permalink }}"{{ end }} class="x-anchor toggle {{ if $current }}is-active{{ end }}">
       {{- partial "title" .Page -}} <i class="fa fa-chevron-down is-pulled-right"></i>
     </a>
     </label>
   {{ else if .Page.Content }}
-    <a {{ if .Page.Content }}href="{{ .Page.Permalink }}"{{ end }} class="{{ if $current }}is-active{{ end }}">
+    <a {{ if .Page.Content }}href="{{ .Page.Permalink }}"{{ end }} class="x-anchor {{ if $current }}is-active{{ end }}">
       {{- partial "title" .Page -}}
     </a>
   {{ else }}
-    <a {{ if .Page.Content }}href="{{ .Page.Permalink }}"{{ end }} class="toggle {{ if $current }}is-active{{ end }}">
+    <a {{ if .Page.Content }}href="{{ .Page.Permalink }}"{{ end }} class="x-anchor toggle {{ if $current }}is-active{{ end }}">
       {{- partial "title" .Page -}} <i class="fa fa-chevron-down is-pulled-right"></i>
     </a>
   {{ end }}

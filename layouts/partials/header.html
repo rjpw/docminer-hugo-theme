@@ -40,11 +40,18 @@
   <script type="text/javascript" src="{{ $js.RelPermalink }}" defer></script>
   <script>
     $(document).ready(function () {
+
       $(".navbar-burger").click(function () {
         $(".navbar-burger").toggleClass("is-active");
         $(".navbar-menu").toggleClass("is-active");
       });
-      addBackToTop();
-    })
+
+      $('.menu-list .inner')
+        .has('.x-anchor[class*="is-active"]')
+        .css("display", "block");
+
+        addBackToTop();
+
+    });
   </script>
 </header>
