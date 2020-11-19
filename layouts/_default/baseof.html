@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
-    {{- block "head" . }}
-    {{- partial "head.html" . -}}
+  {{- block "head" . }}
+  {{- partial "head.html" . -}}
+  {{- end }}
+  <body>
+    {{- block "banner" . }}
+    {{- partial "header.html" . -}}
     {{- end }}
-    <body>
-        {{- block "banner" . }}
-        {{- partial "header.html" . -}}
-        {{- end }}
-        <main>
-        {{- block "main" . }}
-        <div class="container">
-            <div class="columns">
-                <div id="sidebar" class="column is-3 is-fullheight">
-                    {{- partial "menu" . }}
-                </div>
-                <div class="column is-9">
-                    {{- partial "widgets/breadcrumb" . }}
-                    {{- partial "content" . }}
-                </div>
-            </div>
+    <main>
+    {{- block "main" . }}
+    <div class="container">
+      <div class="columns">
+        <div id="sidebar" class="column is-3 is-fullheight">
+          {{- partial "menu" . }}
         </div>
-        {{- end }}
-        </main>
-        {{- block "footer" . }}
-        {{- partial "footer.html" . -}}
-        {{- end }}
-    </body>
+        <div class="column is-9">
+          {{- partial "widgets/breadcrumb" . }}
+          {{- partial "content" . }}
+        </div>
+      </div>
+    </div>
+    {{- end }}
+    </main>
+    {{- block "footer" . }}
+    {{- partial "footer.html" . -}}
+    {{- end }}
+  </body>
 </html>
