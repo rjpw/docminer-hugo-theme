@@ -38,9 +38,8 @@ This theme makes use of the following embedded scripts:
 
 ## Collapsing Menu
 
-This feature is using Buefy, and so it requires a webpack build. Should you requre significant changes to the more advanced features (e.g. the collapsing menu), navigate to the root of this theme and run:
+This feature has a dependency on Bulma, and so requires an NPM install. Before including in any project, please run this:
 
 ```bash
 npm install
-npm run build
 ```
