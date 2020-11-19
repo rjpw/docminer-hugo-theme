@@ -1,18 +1,57 @@
-<!-- sidebar start -->
-<aside class="book-menu">
+<aside>
   <nav>
     {{ $currentPage := . }}
-
     {{ range $key, $value := $.Site.Menus }}
       {{ $currentMenu := $key }}
       {{ if hasPrefix $key "side-" }}
-        {{ partial "menu-filetree" $ }}
+        {{ $menuRoot := substr $key 5 }}
+        {{ with $.Site.GetPage $menuRoot }}
+        <p class="menu-label">{{ $menuRoot }}</p>
+        <ul class="accordion menu-list">
+          <li>
+            {{ template "accordion-children" (dict "Section" . "CurrentPage" $currentPage) }}
+          </li>
+        </ul>
+        {{ end }}
       {{ end }}
     {{ end }}
-
   </nav>
 </aside>
-{{ $script := resources.Get "js/menu-reset.js" | resources.Minify }}
-{{ with $script.Content }}
-  <script>{{ . | safeJS }}</script>
+
+{{ define "accordion-children" }}{{/* (dict "Section" .Section "CurrentPage" .CurrentPage) */}}
+  {{ range (where .Section.Pages "Params.bookhidden" "ne" true) }}
+    {{ if .IsSection }}
+      {{ template "accordion-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+      <ul class="inner">
+        {{ template "accordion-children" (dict "Section" . "CurrentPage" $.CurrentPage) }}
+      </ul>
+    {{ else if and .IsPage .Content }}
+      <li>
+        {{ template "accordion-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
+      </li>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ define "accordion-link" }}
+
+  {{ $current := eq .CurrentPage .Page }}
+  {{ $ancestor := .Page.IsAncestor .CurrentPage }}
+
+  {{ if .Page.Params.bookCollapseSection }}
+    <label for="section-{{ md5 .Page }}" class="flex justify-between">
+    <a {{ if .Page.Content }}href="{{ .Page.Permalink }}"{{ end }} class="x-anchor toggle {{ if $current }}is-active{{ end }}">
+      {{- partial "title" .Page -}} <i class="fa fa-chevron-down is-pulled-right"></i>
+    </a>
+    </label>
+  {{ else if .Page.Content }}
+    <a {{ if .Page.Content }}href="{{ .Page.Permalink }}"{{ end }} class="x-anchor {{ if $current }}is-active{{ end }}">
+      {{- partial "title" .Page -}}
+    </a>
+  {{ else }}
+    <a {{ if .Page.Content }}href="{{ .Page.Permalink }}"{{ end }} class="x-anchor toggle {{ if $current }}is-active{{ end }}">
+      {{- partial "title" .Page -}} <i class="fa fa-chevron-down is-pulled-right"></i>
+    </a>
+  {{ end }}
+
 {{ end }}
