@@ -1,18 +1,12 @@
 <aside>
-  <nav>
+  <nav class="sidenav">
     {{ $currentPage := . }}
-    {{ range $key, $value := $.Site.Menus }}
-      {{ $currentMenu := $key }}
-      {{ if hasPrefix $key "side-" }}
-        {{ $menuRoot := substr $key 5 }}
-        {{ with $.Site.GetPage $menuRoot }}
-        <p class="menu-label">{{ $menuRoot }}</p>
-        <ul class="accordion menu-list">
-          <li>
-            {{ template "accordion-children" (dict "Section" . "CurrentPage" $currentPage) }}
-          </li>
-        </ul>
-        {{ end }}
+    {{ range $.Site.Data.sidebar }}
+      <p class="menu-label">{{ .menu.title }}</p>
+      {{ with $.Site.GetPage .menu.root }}
+      <ul class="accordion menu-list">
+        <li>{{ template "accordion-children" (dict "Section" . "CurrentPage" $currentPage) }}</li>
+      </ul>
       {{ end }}
     {{ end }}
   </nav>
