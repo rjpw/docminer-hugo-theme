@@ -3,12 +3,14 @@
   {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
   </ul>
 </nav>
+
 {{ define "breadcrumbnav" }}
-  {{ if .p1.Parent }}
+  {{ if .p1.Parent }} <!-- only true for child elements -->
     {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
-  {{ else if not .p1.IsHome }}
+  {{ else if not .p1.IsHome }} <!-- only true for child elements that are not "home" -->
     {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
   {{ end }}
+  {{ if not .p1.Params.noBreadcrumb }}
   <li{{ if eq .p1 .p2 }} class="is-active"{{ end }}>
     <a href="{{ .p1.Permalink }}" aria-current="page">
       <span class="icon is-small">
@@ -17,4 +19,5 @@
       <span>{{ .p1.Title }}</span>
     </a>
   </li>
+  {{ end }}
 {{ end }}
