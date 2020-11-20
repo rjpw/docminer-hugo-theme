@@ -67,7 +67,8 @@ main {
   }
 }
 
-#sidebar {
-  overflow-y: scroll;
+.sidenav {
+  position:sticky;
   overflow-x: hidden;
+  overflow-y: auto;
 }
