@@ -1,0 +1,8 @@
+<div id="main-cols" class="columns">
+  {{ $class := .Get "class" }}
+  {{ range split .Inner "<!-- column -->" }}
+  <div class="column {{ $class }}">
+    {{ . | markdownify }}
+  </div>
+  {{ end }}
+</div>

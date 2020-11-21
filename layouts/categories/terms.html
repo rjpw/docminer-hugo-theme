@@ -1,11 +1,11 @@
 {{ define "main" }}
 <div class="section">
   <div class="container">
-    <div class="columns">
+    <div id="main-cols" class="columns">
       <div id="sidebar" class="column is-3 is-fullheight">
         {{- partial "menu" . }}
       </div>
-      <div class="column is-9">
+      <div id="section-article" class="column is-9">
         <div class="container">
           <div class="section">
             {{ partial "widgets/breadcrumb" . }}
@@ -36,7 +36,7 @@
                </div>
              </div>
              {{ end }}
-           </div>
+            </div>
           </div>
         </div>
       </div>

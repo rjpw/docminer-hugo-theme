@@ -13,7 +13,8 @@
 </aside>
 
 {{ define "accordion-children" }}{{/* (dict "Section" .Section "CurrentPage" .CurrentPage) */}}
-  {{ range (where .Section.Pages "Params.bookhidden" "ne" true) }}
+  {{ $childPages := (where .Section.Pages.ByWeight "Params.bookhidden" "ne" true) }}
+  {{ range $childPages }}
     {{ if .IsSection }}
       {{ template "accordion-link" (dict "Page" . "CurrentPage" $.CurrentPage) }}
       <ul class="inner">
