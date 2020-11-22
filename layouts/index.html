@@ -1,16 +1,14 @@
 {{ define "main" }}
 <div class="section">
-  <div class="container">
-    <div id="main-cols" class="columns">
-      <div class="column is-one-fifth">
-        {{- partial "menu" . }}
-      </div>
-      <div class="column">
-        <div class="content">
-          {{ .Content }}
-        </div>
-        </div>
+  <div id="main-cols" class="columns">
+    <div class="column is-one-fifth">
+      {{- partial "menu" . }}
     </div>
+    <div class="column">
+      <div class="content">
+        {{ .Content }}
+      </div>
+      </div>
   </div>
 </div>
 {{ end }}

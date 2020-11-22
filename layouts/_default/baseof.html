@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ .Site.LanguageCode }}" class="has-navbar-fixed-top">
   {{- block "head" . }}
   {{- partial "head.html" . -}}
   {{- end }}
@@ -7,21 +7,21 @@
     {{- block "banner" . }}
     {{- partial "header.html" . -}}
     {{- end }}
-    <main>
     {{- block "main" . }}
-    <div class="container">
+    <div class="section">
       <div id="main-cols" class="columns">
         <div id="sidebar" class="column is-3 is-fullheight">
           {{- partial "menu" . }}
         </div>
-        <div id="section-article" class="column is-9">
+        <div id="section-article" class="column">
           {{- partial "widgets/breadcrumb" . }}
-          {{- partial "content" . }}
+          <main>
+            {{- partial "content" . }}
+          </main>
         </div>
       </div>
     </div>
     {{- end }}
-    </main>
     {{- block "footer" . }}
     {{- partial "footer.html" . -}}
     {{- end }}

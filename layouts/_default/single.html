@@ -1,14 +1,14 @@
 {{ define "main" }}
 <div class="section">
-  <div class="container">
-    <div id="main-cols" class="columns">
-      <div id="sidebar" class="column is-3 is-fullheight">
-        {{- partial "menu" . }}
-      </div>
-      <div id="section-article" class="column is-9 is-fullheight">
-        {{- partial "widgets/breadcrumb" . }}
-        {{- partial "contents" . }}
-      </div>
+  <div id="main-cols" class="columns">
+    <div id="sidebar" class="column is-3 is-fullheight">
+      {{- partial "menu" . }}
+    </div>
+    <div id="section-article" class="column">
+      {{- partial "widgets/breadcrumb" . }}
+      <main>
+      {{- partial "contents" . }}
+      </main>
     </div>
   </div>
 </div>
