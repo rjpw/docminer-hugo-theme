@@ -1,24 +1,35 @@
 {{ define "main" }}
-<div class="hero is-dark is-fullheight-with-navbar" {{ with .Params.heroimage }}
-  style="background: url({{ . }}) center top; background-size:cover;" {{ end }}>
-  <div class="hero-body">
-   <div class="container">
-    <h1 class="title is-1 has-background-primary narrow-background">
-      {{ .Title }}
-    </h1>
-    {{ with .Params.herotext }}
-    <h2 class="title subtitle is-4 has-background-primary narrow-background">
-      {{ . }}
-    </h2>
-    {{ end }}
-   </div>
-  </div>
-</div>
 <div class="section">
- <div class="container">
-   <div class="content">
-     {{ .Content }}
-   </div>
- </div>
+  <div id="main-cols" class="columns">
+    <div id="sidebar" class="column is-3 is-fullheight">
+      {{- partial "menu" . }}
+    </div>
+    <div id="section-article" class="column">
+
+      <div class="hero is-dark is-fullheight-with-navbar" {{ with .Params.heroimage }}
+        style="background: url({{ . }}) center top; background-size:cover;" {{ end }}>
+        <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-1 has-background-primary narrow-background">
+            {{ .Title }}
+          </h1>
+          {{ with .Params.herotext }}
+          <h2 class="title subtitle is-4 has-background-primary narrow-background">
+            {{ . }}
+          </h2>
+          {{ end }}
+        </div>
+        </div>
+      </div>
+      <div class="section">
+      <div class="container">
+        <div class="content">
+          {{ .Content }}
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 {{ end }}
