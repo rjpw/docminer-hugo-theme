@@ -1,5 +1,13 @@
-{{- $.Scratch.Add "index" slice -}}
-{{- range .Site.RegularPages -}}
-    {{- $.Scratch.Add "index" (dict "title" .Title "date" (dateFormat "2006-01-02" .Date) "categories" .Params.categories "contents" .Plain "permalink" .Permalink) -}}
+{{- $index := slice -}}
+{{- range where site.RegularPages "Params.draft" "!=" true -}}
+  {{- $page := . -}}
+  {{- $chunked := slice -}}
+  {{- $post_len := len .PlainWords -}}
+  {{- range $i := (seq 0 1000 $post_len) -}}
+    {{- $chunked = $chunked | append (delimit (first 1000 (after $i $page.PlainWords) ) " " ) -}}
+  {{- end -}}
+  {{- range $i, $c := $chunked -}}
+    {{- $index = $index | append (dict "objectID" (print $page.File.UniqueID "_" $i) "content" $c "order" $i "title" $page.Title "date" $page.Date "href" $page.Permalink "categories" $page.Params.categories ) -}}
+  {{- end -}}
 {{- end -}}
-{{- $.Scratch.Get "index" | jsonify -}}
+{{- $index | jsonify -}}
